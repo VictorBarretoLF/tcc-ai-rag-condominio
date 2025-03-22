@@ -10,6 +10,9 @@ spring:
     properties:
       hibernate:
         dialect: com.tcc.rag_open_ai_tcc.config.CustomPostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 server:
   port: 8081

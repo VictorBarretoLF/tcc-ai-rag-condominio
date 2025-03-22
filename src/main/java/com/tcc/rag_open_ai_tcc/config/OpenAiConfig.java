@@ -1,7 +1,6 @@
 package com.tcc.rag_open_ai_tcc.config;
 
 import com.tcc.rag_open_ai_tcc.service.Assistant;
-import dev.ai4j.openai4j.chat.ResponseFormatType;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
@@ -25,6 +24,7 @@ public class OpenAiConfig {
     @Bean
     public ChatLanguageModel chatLanguageModel() {
         return OpenAiChatModel.builder()
+                .baseUrl("http://langchain4j.dev/demo/openai/v1")
                 .apiKey("demo")
                 .modelName(GPT_4_O_MINI)
                 .responseFormat("json_schema")
