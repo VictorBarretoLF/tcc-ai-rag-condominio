@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: rag-open-ai-tcc
+
+server:
+  port: 8081
+
+evolution-api:
+  url: http://localhost:8080
+  key: 0417bf43b0a8969bd6685bcb49d783df
+
+#resilience4j:
+#  retry:
+#    instances:
+#      EvolutionApiClient:
+#        maxAttempts: 3
+#        waitDuration: 2s
+#        retryExceptions:
+#          - com.tcc.rag_open_ai_tcc.exceptions.EvolutionApiException
