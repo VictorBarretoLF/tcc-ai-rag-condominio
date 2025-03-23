@@ -3,6 +3,7 @@ package com.tcc.rag_open_ai_tcc.service.v1.impl;
 import com.tcc.rag_open_ai_tcc.dto.ChatRequest;
 import com.tcc.rag_open_ai_tcc.service.v1.Assistant;
 import com.tcc.rag_open_ai_tcc.service.v1.GenAIService;
+import com.tcc.rag_open_ai_tcc.service.v1.RAGAssistantInMemory;
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.openai.OpenAiChatModel;
@@ -19,6 +20,7 @@ import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 public class GenAIServiceImpl implements GenAIService {
 
     private final Assistant assistant;
+    private final RAGAssistantInMemory ragAssistantInMemory;
     private final VectorSearchService vectorSearchService;
 
     @Override
@@ -51,7 +53,7 @@ public class GenAIServiceImpl implements GenAIService {
                 .apiKey("demo")
                 .modelName(GPT_4_O_MINI)
                 .build()
-                .generate(formattedPrompt);
+                .generate(context);
     }
 
     private String formatPrompt(String question, String context) {
@@ -63,6 +65,11 @@ public class GenAIServiceImpl implements GenAIService {
             If the answer isn't in the context, respond "I don't know".
             Make the answer concise and include relevant details from the context.
             """, context, question);
+    }
+
+    @Override
+    public String getResponseExtendedWithInMemoryRag(ChatRequest request) {
+        return ragAssistantInMemory.chat(request.userId(), request.question());
     }
 
 }

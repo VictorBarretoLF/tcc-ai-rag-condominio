@@ -15,7 +15,7 @@ public class DocumentEmbedding {
     @Column(columnDefinition = "text")
     private String content;
 
-    @Column(columnDefinition = "vector(1536)")
+    @Column(nullable = false, columnDefinition = "vector(1536)")
     private float[] embedding;
 
     private String filename;

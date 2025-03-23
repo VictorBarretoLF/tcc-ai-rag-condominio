@@ -63,7 +63,6 @@ public class EmbeddingComponentImpl implements EmbeddingComponent {
 
             documentEmbeddingRepository.save(documentEmbedding);
         });
-
     }
 
 }
