@@ -1,9 +1,11 @@
 package com.tcc.rag_open_ai_tcc.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "document_embeddings")
+@Data
 public class DocumentEmbedding {
 
     @Id

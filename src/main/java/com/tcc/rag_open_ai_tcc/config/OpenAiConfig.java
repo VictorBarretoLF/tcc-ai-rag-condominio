@@ -1,6 +1,6 @@
 package com.tcc.rag_open_ai_tcc.config;
 
-import com.tcc.rag_open_ai_tcc.service.Assistant;
+import com.tcc.rag_open_ai_tcc.service.v1.Assistant;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
@@ -30,7 +30,7 @@ public class OpenAiConfig {
     public OpenAiEmbeddingModel embeddingModel() {
         return OpenAiEmbeddingModel.builder()
                 .apiKey("demo")
-                .modelName(OpenAiEmbeddingModelName.TEXT_EMBEDDING_ADA_002)
+                .modelName(OpenAiEmbeddingModelName.TEXT_EMBEDDING_3_SMALL)
                 .build();
     }
 

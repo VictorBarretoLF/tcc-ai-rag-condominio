@@ -2,7 +2,7 @@ package com.tcc.rag_open_ai_tcc.controller.v1;
 
 import com.tcc.rag_open_ai_tcc.dto.ChatRequest;
 import com.tcc.rag_open_ai_tcc.dto.ChatResponse;
-import com.tcc.rag_open_ai_tcc.service.GenAIService;
+import com.tcc.rag_open_ai_tcc.service.v1.GenAIService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,10 +1,7 @@
 package com.tcc.rag_open_ai_tcc.controller.webhook.evolution.api;
 
-import com.tcc.rag_open_ai_tcc.dataprovider.client.EvolutionApiClient;
-import com.tcc.rag_open_ai_tcc.dto.EvolutionApiMessageRequest;
 import com.tcc.rag_open_ai_tcc.dto.EvolutionApiPayload;
-import com.tcc.rag_open_ai_tcc.service.GenAIService;
-import com.tcc.rag_open_ai_tcc.service.MessageReceivedProcessor;
+import com.tcc.rag_open_ai_tcc.service.v1.MessageReceivedProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
