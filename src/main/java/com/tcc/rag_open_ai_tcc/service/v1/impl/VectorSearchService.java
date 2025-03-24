@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,17 +23,15 @@ public class VectorSearchService {
         Embedding questionEmbedding = embeddingModel.embed(question).content();
 
         // Search for top 3 most relevant document chunks
-        List<DocumentEmbedding> results = repository.findTop3ByEmbeddingOrderByCosineSimilarity(questionEmbedding.vector());
+        var results = repository.findTop3ByEmbeddingOrderByCosineSimilarity(questionEmbedding.vector());
 
         if (results.isEmpty()) {
             return "No relevant context found.";
         }
 
-        // Combine the relevant text chunks
-        StringBuilder context = new StringBuilder();
-        results.forEach(doc -> context.append(doc.getContent()).append("\n\n"));
-
-        return context.toString();
+        return results.stream()
+            .map(row -> (String) row[1])
+            .collect(Collectors.joining("\n\n"));
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DocumentEmbeddingRepository extends JpaRepository<DocumentEmbedding, Long> {
@@ -17,6 +18,6 @@ public interface DocumentEmbeddingRepository extends JpaRepository<DocumentEmbed
         ORDER BY cosine_similarity DESC
         LIMIT 3
         """, nativeQuery = true)
-    List<DocumentEmbedding> findTop3ByEmbeddingOrderByCosineSimilarity(@Param("embedding") float[] embedding);
+    List<Object[]> findTop3ByEmbeddingOrderByCosineSimilarity(@Param("embedding") float[] embedding);
 
 }

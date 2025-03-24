@@ -20,17 +20,6 @@ public class DocumentController {
     private final EmbeddingComponent embeddingComponent;
     private final GenAIService genAIService;
 
-    @PostMapping("/loadSingleDocumentTest")
-    public ResponseEntity<String> loadDocument() {
-        try {
-            embeddingComponent.loadSingleDocument();
-            return ResponseEntity.ok("Document loaded and processed successfully");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error loading document: " + e.getMessage());
-        }
-    }
-
     @PostMapping("/loadDocumentAndSaveOnPostgresql")
     public ResponseEntity<String> loadDocumentAndSaveOnPostgresql() {
         try {

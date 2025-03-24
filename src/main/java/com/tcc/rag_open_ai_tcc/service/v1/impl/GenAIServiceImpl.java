@@ -53,7 +53,7 @@ public class GenAIServiceImpl implements GenAIService {
                 .apiKey("demo")
                 .modelName(GPT_4_O_MINI)
                 .build()
-                .generate(context);
+                .generate(formattedPrompt);
     }
 
     private String formatPrompt(String question, String context) {
