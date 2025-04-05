@@ -39,3 +39,5 @@ out/
 ### Folders ###
 /evolution-api/data/*
 /evolution-api/data
+/postgres-database/*
+postgres-database
