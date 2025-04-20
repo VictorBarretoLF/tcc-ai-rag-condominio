@@ -1,47 +1,44 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
 
+!**/src/main/**/bin/
+!**/src/main/**/build/
+!**/src/main/**/out/
+!**/src/test/**/bin/
+!**/src/test/**/build/
+!**/src/test/**/out/
+!gradle/wrapper/gradle-wrapper.jar
+### Files ###
+### Folders ###
+### IntelliJ IDEA ###
+### NetBeans ###
 ### STS ###
+### VS Code ###
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.DStore
 .apt_generated
 .classpath
 .factorypath
+.gradle
+.idea
 .project
 .settings
 .springBeans
 .sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
 .vscode/
-
-### Folders ###
-/evolution-api/data/*
+/.nb-gradle/
+/dist/
 /evolution-api/data
+/evolution-api/data/*
+/nbbuild/
+/nbdist/
+/nbproject/private/
 /postgres-database/*
+HELP.md
+bin/
+build/
+out/
 postgres-database
-
-### Files ###
-text.pdf
 test.txt
+text.pdf
