@@ -8,7 +8,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       format_sql: true
       show_sql: true
       type: trace
@@ -16,7 +16,7 @@ spring:
 
 logging:
   level:
-    org.hibernate.SQL: debug # or trace
+    org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
 
 server:

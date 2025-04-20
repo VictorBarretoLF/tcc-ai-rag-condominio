@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class EvolutionApiWebhooks {
+public class MessagingWebhookController {
 
     private final MessageReceivedProcessor messageReceivedProcessor;
 

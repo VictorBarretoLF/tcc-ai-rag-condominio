@@ -41,3 +41,7 @@ out/
 /evolution-api/data
 /postgres-database/*
 postgres-database
+
+### Files ###
+text.pdf
+test.txt

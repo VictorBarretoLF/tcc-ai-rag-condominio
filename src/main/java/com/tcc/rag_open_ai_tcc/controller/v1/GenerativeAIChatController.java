@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/chat")
-public class GenerativeController {
+public class GenerativeAIChatController {
 
     private final GenAIService genAIService;
 
