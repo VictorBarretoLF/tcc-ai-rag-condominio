@@ -19,11 +19,13 @@ public class MessagingWebhookController {
 
     @PostMapping("/messages-upsert")
     public void notifiesWhenMessageIsReceived(@RequestBody EvolutionApiPayload payload) {
+        System.out.println("Webhook test4 received GET");
         messageReceivedProcessor.processIncomingMessage(payload);
     }
 
     @GetMapping("/send-message")
     public void test() {
+        System.out.println("Webhook test4 received GET");
         System.out.println("Webhook received /send-message GET");
     }
 
