@@ -1,6 +1,7 @@
 package com.tcc.rag_open_ai_tcc.service.v1.impl;
 
 import com.tcc.rag_open_ai_tcc.dataprovider.client.EvolutionApiClient;
+import com.tcc.rag_open_ai_tcc.dto.ChatRequest;
 import com.tcc.rag_open_ai_tcc.dto.EvolutionApiMessageRequest;
 import com.tcc.rag_open_ai_tcc.dto.EvolutionApiPayload;
 import com.tcc.rag_open_ai_tcc.service.v1.GenAIService;
@@ -10,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -33,7 +35,13 @@ public class MessageReceivedProcessorImpl implements MessageReceivedProcessor {
             log.info("Received message from safe host. Remote JID: {}, Push Name: {}, Message Type: {}, Conversation: {}",
                     remoteJid, pushName, messageType, conversation);
 
-            final var aiResponse = genAIService.getResponse(remoteJid, conversation);
+//            final var aiResponse = genAIService.getResponse(remoteJid, conversation);
+            final var chatRequest = new ChatRequest(
+                    conversation,
+                    remoteJid
+            );
+            final var aiResponse = genAIService.getRagContextResponse(chatRequest, UUID.fromString("3091d278-ebf5-4085-9308-116160952e91"), 10);
+            // http://localhost:8081/api/v2/chat/contextual?fileUuid=3091d278-ebf5-4085-9308-116160952e91
             final var evolutionApiMessageRequestBody = new EvolutionApiMessageRequest(remoteJid, aiResponse);
             final var response = evolutionApiClient.sendMessage(instance, evolutionApiMessageRequestBody);
             log.info("Evolution API response: {}", response);
@@ -45,7 +53,7 @@ public class MessageReceivedProcessorImpl implements MessageReceivedProcessor {
     }
 
     private boolean isSafeRemoteJid(String remoteJid) {
-        return Set.of("558396837708@s.whatsapp.net").contains(remoteJid);
+        return true;
     }
 
 }

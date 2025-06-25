@@ -37,6 +37,7 @@ public class OpenAiConfig {
         return OpenAiEmbeddingModel.builder()
                 .apiKey("demo")
                 .modelName(OpenAiEmbeddingModelName.TEXT_EMBEDDING_3_SMALL)
+
                 .build();
     }
 
@@ -76,6 +77,7 @@ public class OpenAiConfig {
                 .modelName(GPT_4_O_MINI)
                 .responseFormat("json_schema")
                 .strictJsonSchema(true)
+                .temperature(0.0)
                 .build();
     }
 
