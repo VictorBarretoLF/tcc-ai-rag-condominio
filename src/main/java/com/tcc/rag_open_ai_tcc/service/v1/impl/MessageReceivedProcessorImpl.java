@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -43,7 +45,7 @@ public class MessageReceivedProcessorImpl implements MessageReceivedProcessor {
     }
 
     private boolean isSafeRemoteJid(String remoteJid) {
-        return true;
+        return Set.of("558396837708@s.whatsapp.net").contains(remoteJid);
     }
 
 }

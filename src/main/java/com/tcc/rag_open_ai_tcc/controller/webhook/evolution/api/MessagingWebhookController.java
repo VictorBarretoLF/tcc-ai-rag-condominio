@@ -17,29 +17,29 @@ public class MessagingWebhookController {
 
     private final MessageReceivedProcessor messageReceivedProcessor;
 
-    @PostMapping("/messages-upsert")
-    public void notifiesWhenMessageIsReceived(@RequestBody EvolutionApiPayload payload) {
-        System.out.println("Webhook test4 received GET");
-        messageReceivedProcessor.processIncomingMessage(payload);
-    }
-
-    @GetMapping("/send-message")
-    public void test() {
-        System.out.println("Webhook test4 received GET");
-        System.out.println("Webhook received /send-message GET");
-    }
-
-    @GetMapping
-    public ResponseEntity<Void> test4(@RequestBody EvolutionApiPayload test) {
-        System.out.println("Webhook test4 received GET");
-        System.out.println(test.getEvent());
-        return ResponseEntity.ok().build();
-    }
-
-    @PostMapping
-    public ResponseEntity<Void> test5() {
-        System.out.println("Webhook test5 received POST");
-        return ResponseEntity.ok().build();
-    }
+//    @PostMapping("/messages-upsert")
+//    public void notifiesWhenMessageIsReceived(@RequestBody EvolutionApiPayload payload) {
+//        System.out.println("Webhook test4 received GET");
+//        messageReceivedProcessor.processIncomingMessage(payload);
+//    }
+//
+//    @GetMapping("/send-message")
+//    public void test() {
+//        System.out.println("Webhook test4 received GET");
+//        System.out.println("Webhook received /send-message GET");
+//    }
+//
+//    @GetMapping
+//    public ResponseEntity<Void> test4(@RequestBody EvolutionApiPayload test) {
+//        System.out.println("Webhook test4 received GET");
+//        System.out.println(test.getEvent());
+//        return ResponseEntity.ok().build();
+//    }
+//
+//    @PostMapping
+//    public ResponseEntity<Void> test5() {
+//        System.out.println("Webhook test5 received POST");
+//        return ResponseEntity.ok().build();
+//    }
 
 }
